@@ -18,6 +18,7 @@ class FetchDemo extends Component {
 	this.handleChange1=this.handleChange1.bind(this);
 	this.handleChange=this.handleChange.bind(this);
 	this.handleSubmit=this.handleSubmit.bind(this);
+	//this.compare=this.compare.bind(this);
   }
 handleChange(event)
 {
@@ -50,6 +51,12 @@ handleSubmit()
 		{
 		this.setState({username: response.data.name,
 	  items:response.data,error:''});
+	  
+	 /* this.state.items.sort(function(a,b)
+	  {
+		return a.rating-b.rating;
+	  });
+	  */
 		 }
 		else
 	  {
@@ -61,6 +68,7 @@ handleSubmit()
 	});
   
 }
+
  /* handleClick () {
 	  //console.log("did i captureEvents");
 	   var authOptions = {
@@ -84,6 +92,8 @@ handleSubmit()
 		  return (
 		  <li key="{item.name}">{item.name}</li>);
 	  });*/
+	  this.state.items.sort(function(a,b){return b.rating-a.rating;});
+	  console.log(this.state.items);
     return (
       <div>
 	  <form>
@@ -114,7 +124,9 @@ handleSubmit()
 		</tr>
 		</thead>
 		<tbody>
-		{this.state.items.map(item=>(
+		
+		{
+			this.state.items.map(item=>(
 			<tr className="warning">
 			<td>{item.name}</td>
 			<td><img src={item.image_url}alt="Restaurant" width="100" height="100"></img></td>
