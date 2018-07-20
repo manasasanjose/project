@@ -37,7 +37,7 @@ handleSubmit()
   console.log(this.state.term);
 	var authOptions = {
     method: 'POST',
-    url: 'http://localhost/tutorials/PHPpractice/Javascript/yelptest.php',
+    url: '../../yelptest.php',
 	data:bodyFormData,
       headers:{'Content-Type': 'multipart/form-data'}
     
